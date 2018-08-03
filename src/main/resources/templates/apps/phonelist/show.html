@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html xmlns:og="http://opengraphprotocol.org/schema/"
+	xmlns:fb="http://www.facebook.com/2008/fbml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:website="http://ogp.me/ns/website" lang="en-US" itemscope
+	itemtype="http://schema.org/WebPage" class="touch-styles">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- This is Squarespace. -->
+<!-- jamie-sharp-va6s -->
+<base href="">
+<meta charset="utf-8" />
+<title>Steer Phone List</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" type="image/x-icon"
+	href="https://static1.squarespace.com/static/5681604dd82d5e873675ed8c/t/5681619fdf40f3468f730b56/favicon.ico" />
+<meta name="twitter:title" content="Our Company" />
+<meta name="twitter:url"
+	content="http://www.steereengineering.com/what-we-do/" />
+<meta name="twitter:card" content="summary" />
+<meta name="description" content="" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body
+	<div class="container-fluid" style="margin-top: 60px">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="pannel-group">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<!--/*@thymesVar id="phonelist" type="com.steereengineering.model.PhoneList"*/-->
+							<h1 class="panel-title" align="center"
+								th:text="${phonelist.firstname} +' ' + ${phonelist.lastname} ">Display
+								Name!</h1>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>ID:</td>
+											<td th:text="${phonelist.id}"></td>
+										</tr>
+										<tr>
+											<td>First Name:</td>
+											<td th:text="${phonelist.firstname}"></td>
+										</tr>
+										<tr>
+											<td>Last Name:</td>
+											<td th:text="${phonelist.lastname}"></td>
+										</tr>
+										<tr>
+											<td>Extension:</td>
+											<td th:text="${phonelist.extension}"></td>
+										</tr>
+										<tr>
+											<td>Cell Phone:</td>
+											<td th:text="${phonelist.cellphone}"></td>
+										</tr>
+										<tr>
+											<td>Email:</td>
+											<td th:text="${phonelist.email}"></td>
+										</tr>
+									</tbody>
+								</table>
+								<div align="right">
+								<a  href="../index" class="btn btn-primary btn-sm">Back</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

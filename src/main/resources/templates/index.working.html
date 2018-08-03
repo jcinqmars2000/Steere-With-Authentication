@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<title>Steer Phone List</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid" style="margin-top: 20px">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title" align="center">Steere Phone List</h1>
+
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive"
+							th:if="${not #lists.isEmpty(phonelist)}">
+							<div>
+								<p align="right">
+									<a href="/phonelist/new" class="btn btn-primary">New</a>
+								</p>
+							</div>
+							<table class="table table-hover ">
+								<thead class="thead-inverse">
+									<tr>
+										<th>ID</th>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Extension</th>
+										<th>Cell Phone</th>
+										<th>Email</th>
+										<th>View</th>
+										<th>Update</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tr th:remove="all">
+									<td>1</td>
+									<td>Donald</td>
+									<td>Duck</td>
+									<td>11</td>
+									<td>(555) 555-5555</td>
+									<td>donaldduck@disney.com</td>
+									<td><a href="#">View</a></td>
+									<td><a href="#">Update</a></td>
+									<td><a href="#">Delete</a></td>
+								</tr>
+								<tr th:remove="all">
+									<td>2</td>
+									<td>Tom</td>
+									<td>Thumb</td>
+									<td>12</td>
+									<td>()888) 888-8888</td>
+									<td>donaldduck@disney.com</td>
+									<td><a href="#">View</a></td>
+									<td><a href="#">Update</a></td>
+									<td><a href="#">Delete</a></td>
+								</tr>
+								<tr th:each="phonelist : ${phonelist}">
+									<!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
+									<td align="right" th:text="${phonelist.id}">3</td>
+									<td th:text="${phonelist.firstname}">Buck</td>
+									<td th:text="${phonelist.lastname}">Rogers</td>
+									<td align="right" th:text="${phonelist.extension}">13</td>
+									<td th:text="${phonelist.cellphone}">(777) 777-7777</td>
+									<td><a href="${phonelist.email}"
+										th:href="@{'mailto:' + ${phonelist.email}}"><th:block
+												th:text="${phonelist.email}" /> </a></td>
+									<!-- <td><a href="#"th:href="@{'/phonelist/show/' + ${phonelist.id}}">View</a></td>
+									<td><a href="#"th:href="@{'/phonelist/show/' + ${phonelist.id}}">View</a></td> -->
+									<td><a href="#"
+										th:href="@{'/phonelist/' + ${phonelist.id} + '/show'}">View</a></td>
+									<td><a href="#"
+										th:href="@{'/phonelist/' + ${phonelist.id} + '/update'}">Update</a></td>
+									<td><a href="#"
+										th:href="@{'/phonelist/' + ${phonelist.id} + '/delete'}">Delete</a></td>
+								</tr>
+							</table>
+							<div>
+								<p align="right">
+									<a href="/phonelist/new" class="btn btn-primary">New</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
